@@ -13,7 +13,50 @@ const Icon = () => (
   </svg>
 );
 
+const faqData = [
+  {
+    question: 'What do you mean by "Figma assets"?',
+    answer: `You will have access to download the full Figma project including all of the pages, the components, responsive pages, and also the icons, illustrations, and images included in the screens.`,
+  },
+  {
+    question: 'What does "lifetime access" exactly mean?',
+    answer: `Once you have purchased either the design, code, or both packages, you will have access to all of the future updates based on the roadmap, free of charge.`,
+  },
+  {
+    question: "How does support work?",
+    answer: `We're aware of the importance of well qualified support, that is why we decided that support will only be provided by the authors that actually worked on this project.`,
+    moreInfo: `Feel free to <a href="#" class="text-primary-600 dark:text-primary-500 font-medium underline hover:no-underline">contact us</a> and we'll help you out as soon as we can.`,
+  },
+  {
+    question: "I want to build more than one project. Is that allowed?",
+    answer: `You can use Windster for an unlimited amount of projects. As long as you don't build a product that directly competes with Windster, it's fine.`,
+    moreInfo: `Find out more information by <a href="#" class="text-primary-600 dark:text-primary-500 font-medium underline hover:no-underline">reading the license</a>.`,
+  },
+  {
+    question: 'What does "free updates" include?',
+    answer: `The free updates that will be provided is based on the <a href="#" class="text-primary-600 dark:text-primary-500 font-medium underline hover:no-underline">roadmap</a> that we have laid out for this project.`,
+  },
+  {
+    question: "What does the free version include?",
+    answer: `The <a href="#" class="text-primary-600 dark:text-primary-500 font-medium underline hover:no-underline">free version</a> of Windster includes a minimal style guideline, component variants, and a dashboard page.`,
+    moreInfo: `You can use this version for any purposes, because it is open-source under the MIT license.`,
+  },
+  {
+    question: "What is the difference between Windster and Tailwind UI?",
+    answer: `Although both are built with Tailwind CSS, Windster includes more components and will later include app, marketing, and e-commerce UI kits.`,
+  },
+  {
+    question: "Can I use Windster in open-source projects?",
+    answer: `Yes, you can use it as long as it’s not a UI kit or template that competes with Windster.`,
+    moreInfo: `Read more in the <a href="#" class="text-primary-600 dark:text-primary-500 font-medium underline hover:no-underline">license</a>.`,
+  },
+];
+
 const FaqSection = () => {
+  const mid = Math.ceil(faqData.length / 2);
+  const leftColumn = faqData.slice(0, mid);
+  const rightColumn = faqData.slice(mid);
+
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-16 lg:px-6">
@@ -24,166 +67,44 @@ const FaqSection = () => {
         <div className="grid border-t border-gray-200 pt-8 text-left md:grid-cols-2 md:gap-16 dark:border-gray-700">
           {/* Left column */}
           <div>
-            {/* Question 1 */}
-            <div className="mb-10">
-              <h3 className="mb-4 flex items-center text-lg font-medium text-gray-900 dark:text-white">
-                <Icon /> What do you mean by "Figma assets"?
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                You will have access to download the full Figma project
-                including all of the pages, the components, responsive pages,
-                and also the icons, illustrations, and images included in the
-                screens.
-              </p>
-            </div>
-
-            {/* Question 2 */}
-            <div className="mb-10">
-              <h3 className="mb-4 flex items-center text-lg font-medium text-gray-900 dark:text-white">
-                <Icon /> What does "lifetime access" exactly mean?
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                Once you have purchased either the design, code, or both
-                packages, you will have access to all of the future updates
-                based on the roadmap, free of charge.
-              </p>
-            </div>
-
-            {/* Question 3 */}
-            <div className="mb-10">
-              <h3 className="mb-4 flex items-center text-lg font-medium text-gray-900 dark:text-white">
-                <Icon /> How does support work?
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                We're aware of the importance of well qualified support, that is
-                why we decided that support will only be provided by the authors
-                that actually worked on this project.
-              </p>
-              <p className="text-gray-500 dark:text-gray-400">
-                Feel free to{" "}
-                <a
-                  href="#"
-                  className="text-primary-600 dark:text-primary-500 font-medium underline hover:no-underline"
-                >
-                  contact us
-                </a>{" "}
-                and we'll help you out as soon as we can.
-              </p>
-            </div>
-
-            {/* Question 4 */}
-            <div className="mb-10">
-              <h3 className="mb-4 flex items-center text-lg font-medium text-gray-900 dark:text-white">
-                <Icon /> I want to build more than one project. Is that allowed?
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                You can use Windster for an unlimited amount of projects,
-                whether it's a personal website, a SaaS app, or a website for a
-                client. As long as you don't build a product that will directly
-                compete with Windster either as a UI kit, theme, or template,
-                it's fine.
-              </p>
-              <p className="text-gray-500 dark:text-gray-400">
-                Find out more information by{" "}
-                <a
-                  href="#"
-                  className="text-primary-600 dark:text-primary-500 font-medium underline hover:no-underline"
-                >
-                  reading the license
-                </a>
-                .
-              </p>
-            </div>
+            {leftColumn.map((item, index) => (
+              <div key={index} className="mb-10">
+                <h3 className="mb-4 flex items-center text-lg font-medium text-gray-900 dark:text-white">
+                  <Icon /> {item.question}
+                </h3>
+                <p
+                  className="text-gray-500 dark:text-gray-400"
+                  dangerouslySetInnerHTML={{ __html: item.answer }}
+                />
+                {item.moreInfo && (
+                  <p
+                    className="text-gray-500 dark:text-gray-400"
+                    dangerouslySetInnerHTML={{ __html: item.moreInfo }}
+                  />
+                )}
+              </div>
+            ))}
           </div>
 
           {/* Right column */}
           <div>
-            {/* Question 5 */}
-            <div className="mb-10">
-              <h3 className="mb-4 flex items-center text-lg font-medium text-gray-900 dark:text-white">
-                <Icon /> What does "free updates" include?
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                The free updates that will be provided is based on the{" "}
-                <a
-                  href="#"
-                  className="text-primary-600 dark:text-primary-500 font-medium underline hover:no-underline"
-                >
-                  roadmap
-                </a>{" "}
-                that we have laid out for this project. It is also possible that
-                we will provide extra updates outside of the roadmap as well.
-              </p>
-            </div>
-
-            {/* Question 6 */}
-            <div className="mb-10">
-              <h3 className="mb-4 flex items-center text-lg font-medium text-gray-900 dark:text-white">
-                <Icon /> What does the free version include?
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                The{" "}
-                <a
-                  href="#"
-                  className="text-primary-600 dark:text-primary-500 font-medium underline hover:no-underline"
-                >
-                  free version
-                </a>{" "}
-                of Windster includes a minimal style guidelines, component
-                variants, and a dashboard page with the mobile version alongside
-                it.
-              </p>
-              <p className="text-gray-500 dark:text-gray-400">
-                You can use this version for any purposes, because it is
-                open-source under the MIT license.
-              </p>
-            </div>
-
-            {/* Question 7 */}
-            <div className="mb-10">
-              <h3 className="mb-4 flex items-center text-lg font-medium text-gray-900 dark:text-white">
-                <Icon /> What is the difference between Windster and Tailwind
-                UI?
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                Although both Windster and Tailwind UI are built for integration
-                with Tailwind CSS, the main difference is in the design, the
-                pages, the extra components and UI elements that Windster
-                includes.
-              </p>
-              <p className="text-gray-500 dark:text-gray-400">
-                Additionally, Windster is a project that is still in
-                development, and later it will include both the application,
-                marketing, and e-commerce UI interfaces.
-              </p>
-            </div>
-
-            {/* Question 8 */}
-            <div className="mb-10">
-              <h3 className="mb-4 flex items-center text-lg font-medium text-gray-900 dark:text-white">
-                <Icon /> Can I use Windster in open-source projects?
-              </h3>
-              <p className="text-gray-500 dark:text-gray-400">
-                Generally, it is accepted to use Windster in open-source
-                projects, as long as it is not a UI library, a theme, a
-                template, a page-builder that would be considered as an
-                alternative to Windster itself.
-              </p>
-              <p className="text-gray-500 dark:text-gray-400">
-                With that being said, feel free to use this design kit for your
-                open-source projects.
-              </p>
-              <p className="text-gray-500 dark:text-gray-400">
-                Find out more information by{" "}
-                <a
-                  href="#"
-                  className="text-primary-600 dark:text-primary-500 font-medium underline hover:no-underline"
-                >
-                  reading the license
-                </a>
-                .
-              </p>
-            </div>
+            {rightColumn.map((item, index) => (
+              <div key={index} className="mb-10">
+                <h3 className="mb-4 flex items-center text-lg font-medium text-gray-900 dark:text-white">
+                  <Icon /> {item.question}
+                </h3>
+                <p
+                  className="text-gray-500 dark:text-gray-400"
+                  dangerouslySetInnerHTML={{ __html: item.answer }}
+                />
+                {item.moreInfo && (
+                  <p
+                    className="text-gray-500 dark:text-gray-400"
+                    dangerouslySetInnerHTML={{ __html: item.moreInfo }}
+                  />
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
