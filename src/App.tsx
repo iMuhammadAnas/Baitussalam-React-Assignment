@@ -1,4 +1,5 @@
 import './App.css'
+import BlogSection from './components/BlogSection'
 import FaqSection from './components/FaqSection'
 import FeaturesSection from './components/FeaturesSection'
 import Footer from './components/Footer'
@@ -14,6 +15,7 @@ function App() {
       <HeroSection />
       <FeaturesSection />
       <FaqSection />
+      <BlogSection />
       <NewsletterSection />
       <Footer />
     </>
