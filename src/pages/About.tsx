@@ -1,69 +1,88 @@
+"use client";
+import { Lightbulb, Eye, HeartHandshake } from "lucide-react";
+
 const About = () => {
   return (
-    <section className="bg-white dark:bg-gray-900">
-      <div className="mx-auto max-w-screen-xl px-4 py-16 lg:px-6">
+    <section className="bg-white dark:bg-gray-900 py-20">
+      <div className="mx-auto max-w-screen-xl px-4 lg:px-8">
         {/* Heading */}
-        <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            About Us
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
+            About{" "}
+            <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+              Us
+            </span>
           </h2>
-          <p className="text-gray-500 sm:text-xl dark:text-gray-400 max-w-2xl mx-auto">
-            We are dedicated to building modern, scalable, and innovative
-            solutions that help businesses grow and succeed in the digital era.
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400">
+            We design modern, scalable, and innovative solutions that help
+            businesses grow and succeed in the digital era.
           </p>
         </div>
 
-        {/* Content Grid */}
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Mission / Vision / Values */}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* Mission */}
-          <div>
-            <h3 className="mb-3 text-xl font-semibold dark:text-white">
+          <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-blue-500 text-white mb-4">
+              <Lightbulb />
+            </div>
+            <h3 className="text-xl font-semibold mb-2 dark:text-white">
               Our Mission
             </h3>
-            <p className="text-gray-500 dark:text-gray-400">
-              To empower businesses with powerful technology solutions that
-              simplify processes, boost productivity, and drive sustainable
-              growth.
+            <p className="text-gray-600 dark:text-gray-400">
+              Empower businesses with solutions that simplify processes, boost
+              productivity, and drive growth.
             </p>
           </div>
 
           {/* Vision */}
-          <div>
-            <h3 className="mb-3 text-xl font-semibold dark:text-white">
+          <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-purple-500 text-white mb-4">
+              <Eye />
+            </div>
+            <h3 className="text-xl font-semibold mb-2 dark:text-white">
               Our Vision
             </h3>
-            <p className="text-gray-500 dark:text-gray-400">
-              To become a global leader in digital transformation by
-              consistently delivering value and innovation to our clients.
+            <p className="text-gray-600 dark:text-gray-400">
+              To be a global leader in digital transformation by delivering
+              consistent value and innovation.
             </p>
           </div>
 
           {/* Values */}
-          <div>
-            <h3 className="mb-3 text-xl font-semibold dark:text-white">
+          <div className="p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-pink-500 text-white mb-4">
+              <HeartHandshake />
+            </div>
+            <h3 className="text-xl font-semibold mb-2 dark:text-white">
               Our Values
             </h3>
-            <p className="text-gray-500 dark:text-gray-400">
-              Innovation, integrity, and collaboration are at the heart of
-              everything we do, helping us create meaningful impact for our
-              customers.
+            <p className="text-gray-600 dark:text-gray-400">
+              Innovation, integrity, and collaboration guide everything we do,
+              creating lasting impact.
             </p>
           </div>
         </div>
 
         {/* Extra Section */}
-        <div className="mt-16 flex flex-col items-center text-center">
-          <img
-            className="w-64 rounded-2xl shadow-lg mb-6"
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
-            alt="Team mockup"
-          />
-          <p className="text-gray-600 dark:text-gray-400 max-w-xl">
-            Our dedicated team of experts works tirelessly to deliver
-            high-quality solutions. With years of experience and passion for
-            innovation, we help you achieve your business goals faster and
-            smarter.
-          </p>
+        <div className="mt-20 grid lg:grid-cols-2 gap-12 items-center">
+          <div className="flex justify-center">
+            <img
+              src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
+              alt="Team"
+              className="w-80 rounded-3xl shadow-lg hover:scale-105 transition"
+            />
+          </div>
+          <div>
+            <h3 className="text-2xl font-bold mb-4 dark:text-white">
+              Meet Our Team
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400 text-lg">
+              Our dedicated experts work tirelessly to deliver high-quality
+              solutions. With passion and years of experience, we help you
+              achieve business goals faster and smarter.
+            </p>
+          </div>
         </div>
       </div>
     </section>
