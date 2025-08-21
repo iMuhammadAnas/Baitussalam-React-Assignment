@@ -1,21 +1,22 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router"; // react-router v7
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "About", href: "#" },
-    { name: "Services", href: "#" },
-    { name: "Pricing", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
     <nav className="border-gray-200 bg-white dark:bg-gray-900">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
-        <a
-          href="https://flowbite.com/"
+        <NavLink
+          to="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
           <img
@@ -26,7 +27,7 @@ const Navbar: React.FC = () => {
           <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
             Flowbite
           </span>
-        </a>
+        </NavLink>
 
         {/* Mobile menu button */}
         <button
@@ -64,12 +65,18 @@ const Navbar: React.FC = () => {
           <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 rtl:space-x-reverse dark:border-gray-700 dark:bg-gray-800 md:dark:bg-gray-900">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <a
-                  href={link.href}
-                  className="block rounded-sm px-3 py-2 text-gray-900 hover:bg-gray-100 md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+                <NavLink
+                  to={link.path}
+                  className={({ isActive }) =>
+                    `block rounded-sm px-3 py-2 ${
+                      isActive
+                        ? "text-blue-700 dark:text-blue-500"
+                        : "text-gray-900 dark:text-white"
+                    } hover:bg-gray-100 md:border-0 md:p-0 md:hover:bg-transparent dark:hover:bg-gray-700 md:dark:hover:bg-transparent`
+                  }
                 >
                   {link.name}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
