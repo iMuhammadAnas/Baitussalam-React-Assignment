@@ -1,39 +1,52 @@
+import {
+  Globe,
+  Smartphone,
+  Palette,
+  ShoppingCart,
+  Rocket,
+  Cog,
+} from "lucide-react";
+
 const services = [
   {
     title: "Web Development",
     description:
       "We build modern, scalable, and responsive websites using the latest technologies tailored to your business needs.",
-    icon: "🌐",
+    icon: <Globe className="w-10 h-10 text-blue-600 dark:text-blue-400" />,
   },
   {
     title: "Mobile Apps",
     description:
       "From concept to deployment, we create intuitive and high-performing mobile applications for iOS and Android.",
-    icon: "📱",
+    icon: (
+      <Smartphone className="w-10 h-10 text-green-600 dark:text-green-400" />
+    ),
   },
   {
     title: "UI/UX Design",
     description:
       "Our creative team designs beautiful, user-friendly interfaces that enhance customer engagement and satisfaction.",
-    icon: "🎨",
+    icon: <Palette className="w-10 h-10 text-pink-600 dark:text-pink-400" />,
   },
   {
     title: "E-commerce Solutions",
     description:
       "We deliver secure and fast online stores with payment gateway integration, inventory management, and more.",
-    icon: "🛒",
+    icon: (
+      <ShoppingCart className="w-10 h-10 text-orange-600 dark:text-orange-400" />
+    ),
   },
   {
     title: "SEO & Marketing",
     description:
       "Boost your online visibility and grow your audience with our SEO optimization and digital marketing strategies.",
-    icon: "🚀",
+    icon: <Rocket className="w-10 h-10 text-purple-600 dark:text-purple-400" />,
   },
   {
     title: "Custom Software",
     description:
       "We develop custom software solutions tailored specifically for your business processes and goals.",
-    icon: "⚙️",
+    icon: <Cog className="w-10 h-10 text-indigo-600 dark:text-indigo-400" />,
   },
 ];
 
@@ -53,14 +66,16 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <div
               key={index}
-              className="p-6 bg-gray-50 rounded-lg shadow hover:shadow-md dark:bg-gray-800 transition"
+              className="p-8 bg-gray-50 rounded-2xl shadow-md hover:shadow-xl dark:bg-gray-800 transition transform hover:-translate-y-2"
             >
-              <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="mb-2 text-xl font-semibold dark:text-white">
+              <div className="flex items-center justify-center w-16 h-16 mb-6 rounded-xl bg-gray-100 dark:bg-gray-700">
+                {service.icon}
+              </div>
+              <h3 className="mb-3 text-xl font-semibold text-gray-900 dark:text-white">
                 {service.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-400">
