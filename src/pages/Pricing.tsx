@@ -39,48 +39,56 @@ const plans = [
 
 const Pricing = () => {
   return (
-    <section className="bg-white dark:bg-gray-900">
-      <div className="mx-auto max-w-screen-xl px-4 py-16 lg:px-6">
+    <section className="">
+      <div className="mx-auto max-w-screen-xl px-4 py-20 lg:px-6">
         {/* Heading */}
-        <div className="mb-12 text-center">
+        <div className="mb-16 text-center">
           <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white">
-            Our Pricing
+            Flexible Pricing Plans
           </h2>
-          <p className="text-gray-500 sm:text-xl dark:text-gray-400 max-w-2xl mx-auto">
-            Choose the plan that fits your needs. Upgrade anytime as your
-            business grows.
+          <p className="text-gray-600 sm:text-lg dark:text-gray-400 max-w-2xl mx-auto">
+            Start small, upgrade as you grow. Choose the plan that matches your
+            business needs.
           </p>
         </div>
 
         {/* Pricing Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`flex flex-col justify-between rounded-lg border shadow p-6 ${
+              className={`flex flex-col justify-between rounded-2xl border shadow-xl backdrop-blur-md transition-transform hover:scale-105 ${
                 plan.highlight
-                  ? "border-indigo-600 bg-indigo-50 dark:bg-indigo-900 dark:border-indigo-500"
-                  : "border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700"
-              }`}
+                  ? "border-indigo-600 bg-indigo-50/70 dark:bg-indigo-900/40 dark:border-indigo-500 scale-105"
+                  : "border-gray-200 bg-white/70 dark:bg-gray-800/40 dark:border-gray-700"
+              } p-8`}
             >
               {/* Title */}
               <div>
-                <h3 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+                <h3
+                  className={`mb-3 text-2xl font-bold ${
+                    plan.highlight
+                      ? "text-indigo-700 dark:text-indigo-300"
+                      : "text-gray-900 dark:text-white"
+                  }`}
+                >
                   {plan.name}
                 </h3>
-                <div className="mb-4 flex items-baseline text-gray-900 dark:text-white">
-                  <span className="text-4xl font-extrabold">{plan.price}</span>
-                  <span className="text-gray-500 dark:text-gray-400 ml-1">
+                <div className="mb-6 flex items-baseline">
+                  <span className="text-5xl font-extrabold text-gray-900 dark:text-white">
+                    {plan.price}
+                  </span>
+                  <span className="text-gray-500 dark:text-gray-400 ml-2">
                     {plan.period}
                   </span>
                 </div>
 
                 {/* Features */}
-                <ul className="space-y-3 text-gray-600 dark:text-gray-300 mb-6">
+                <ul className="space-y-4 text-gray-700 dark:text-gray-300">
                   {plan.features.map((feature, i) => (
                     <li key={i} className="flex items-center">
                       <svg
-                        className="w-5 h-5 text-green-500 mr-2"
+                        className="w-6 h-6 text-green-500 mr-3 flex-shrink-0"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -98,9 +106,9 @@ const Pricing = () => {
 
               {/* Button */}
               <button
-                className={`w-full px-4 py-2 rounded-lg font-semibold transition ${
+                className={`mt-8 w-full px-5 py-3 rounded-xl font-semibold transition shadow-md ${
                   plan.highlight
-                    ? "bg-indigo-600 text-white hover:bg-indigo-700"
+                    ? "bg-gradient-to-r from-indigo-600 to-indigo-500 text-white hover:from-indigo-700 hover:to-indigo-600"
                     : "bg-gray-200 text-gray-900 hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
                 }`}
               >
