@@ -18,7 +18,7 @@ This project is part of React Assignment 01. It includes 6 converted HTML compon
 ## 🔧 Setup Instructions
 
 ## Clone the repository
-- git clone https://github.com/your-username/Baitussalam-React-Assignment
+- git clone https://github.com/iMuhammadAnas/Baitussalam-React-Assignment
 - cd react-assignment-01
   
 - Install dependencies
