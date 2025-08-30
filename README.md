@@ -13,7 +13,7 @@ This project is part of React Assignment 01. It includes 6 converted HTML compon
 - 6 HTML to JSX converted components
 - Responsive layout using Tailwind
 - Clean code using TypeScript
-- Hosted on Vercel/Netlify
+- Hosted on Netlify
 
 ## 🔧 Setup Instructions
 
